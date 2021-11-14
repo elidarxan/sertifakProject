@@ -6,7 +6,6 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   dbProduct.find({} , (err , data) => {
-    console.log(data);
     try {
       res.render('card', { 
         title: 'Bosh sahifa',
