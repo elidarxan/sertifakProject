@@ -210,6 +210,13 @@ section {
     position: fixed;
     z-index: 40;
   }
+  .col-lg-12.body_biggcard{
+    display: block;
+  }
+  .navbar__my ul.links li a{
+    background-color: #000
+  }
+
 }
 
 
@@ -223,12 +230,22 @@ section {
   font-family: "Istok Web", sans-serif;
 }
 
-.big__card{
+.big__card.col-lg-6{
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: auto;
   margin:15px 0px;
+  background: #6B778D !important;
+  padding: 17px;
+  border-radius: 30px;
+}
+.col-lg-12.body_biggcard {
+  justify-content: center;
+  min-height: auto;
+  background: #6B778D !important;
+  padding: 30px;
+  border-radius: 30px;
 }
 
 .card {
@@ -368,9 +385,6 @@ section {
   margin: 0px 0px 0px 30px;
 }
 
-.body_biggcard {
-  display: flex;
-}
 .product p {
   font-size: 30px;
   font-weight: 1000px;
@@ -380,6 +394,34 @@ section {
 .asd {
   justify-content: space-between;
   display: flex;
-  color:white;
+  color: white;
+  flex-wrap: wrap;
+  background: #31232123;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 15px;
+}
+.asd{
+  flex-wrap: wrap;
+  background: #31232123;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 15px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 30px;
+}
+.images.col-lg-6 {
+  border-radius: 17px;
+  overflow: hidden;
+  border-radius: 17px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
 }
 
