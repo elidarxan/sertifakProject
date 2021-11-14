@@ -26,7 +26,9 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-mongoose.connect('mongodb://localhost:27017/deploy' , {useNewUrlParser : true , useUnifiedTopology: true });
+const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(uri , {useNewUrlParser : true , useUnifiedTopology: true });
+
 
 const db = mongoose.connection
 db.on('open' , () => {
