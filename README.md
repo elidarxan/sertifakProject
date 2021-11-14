@@ -1,0 +1,2 @@
+# sertifakProject
+sertifikatga qilingan project
