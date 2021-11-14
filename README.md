@@ -1,2 +1,3 @@
-# sertifakProject
-sertifikatga qilingan project
+# test
+adadasdad a agrgrdrs 
+сывсфвмцмфвфывмывф 

@@ -1,0 +1,30 @@
+extends layout
+block content
+ if data
+    .container 
+        .row.margin-auto 
+            .col-lg-8.body_biggcard 
+                .images
+                    img(src= "images/"+ data.img, alt="")
+                .product.col-lg-6
+                    .asd 
+                        p Kategoriyasi:  
+                        p= data.category
+                    .asd 
+                        h1 Nomi:  
+                        h1= data.title 
+                    .asd 
+                        h2 Narxi:  
+                        h2= data.price 
+                                | $
+                    .asd 
+                        p Haqida:  
+                        p.desc= data.comment 
+                            .buttons
+                    if(login)
+                        a.add(href="/add/delete/"+data.id).button_my O`chirish
+                        a.like(href="/add/update/"+data.id).button_my O`zgartirish
+                        
+
+
+    
