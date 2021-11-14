@@ -60,7 +60,6 @@ app.get('*' , (req , res , next) => {
 
 app.use('/', indexRouter);
 app.use('/add', addRouter);
-// app.use('/product', productRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 

@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/' , fileFilter.single("img") , md ,   (req , res) => {
+  console.log(req.file.filename);
   const db = new dbProduct({
     title : req.body.title,
     price : req.body.price,

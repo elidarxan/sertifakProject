@@ -20,21 +20,6 @@ router.get('/', function(req, res, next) {
   })
  
 });
-router.get('/user', function(req, res, next) {
-  dbUser.find({} , (err , datas) => {
-    console.log(datas);
-    try {
-      res.render('card', { 
-        title: 'Bosh sahifa',
-        db : datas 
-
-      });
-    } catch (err) {
-        console.log(err);
-    }
-  })
- 
-});
 
 
 router.get('/category', function(req, res, next) {
@@ -92,6 +77,7 @@ router.get('/category/mers', function(req, res, next) {
   })
  
 });
+
 router.get('/category/lada', function(req, res, next) {
   dbProduct.aggregate([{ '$match' : {category:"lada" }}] , (err , data) => {
     try {
