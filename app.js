@@ -27,7 +27,7 @@ app.use(session({
 }))
 
 const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(uri , {useNewUrlParser : true , useUnifiedTopology: true });
+mongoose.connect(uri, {useNewUrlParser : true , useUnifiedTopology: true });
 
 
 const db = mongoose.connection

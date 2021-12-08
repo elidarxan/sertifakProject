@@ -1,6 +1,6 @@
 const express = require('express');
 const dbProduct = require('../model/Product')
-const dbUser = require('../model/User')
+const User = require('../model/User')
 const router = express.Router();
 
 /* GET home page. */
@@ -91,5 +91,6 @@ router.get('/category/lada', function(req, res, next) {
   })
  
 });
+
 
 module.exports = router;

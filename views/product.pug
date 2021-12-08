@@ -1,9 +1,9 @@
 extends layout
 block content
- if data
     .container 
         .row.margin-auto 
             .col-lg-12.body_biggcard.d-lg-flex 
+             if data
                 .images.col-lg-6
                     img(src= "images/"+ data.img, alt="")
                 .product.col-lg-6
@@ -17,14 +17,17 @@ block content
                         h2 Narxi:  
                         h2= data.price 
                                 | $
-                    .asd 
-                        p Haqida:  
-                        p.desc= data.comment 
-                            .buttons
+                    .asd.back_gr 
+                        .product_box
+                            p Avtor:  
+                            p.desc= user.names
+                        .product_box
+                            p telfon nomer:  
+                            p.desc= user.phone
                     if(login)
                         a.add(href="/add/delete/"+data.id).button_my O`chirish
                         a.like(href="/add/update/"+data.id).button_my O`zgartirish
-                        
+
 
 
     

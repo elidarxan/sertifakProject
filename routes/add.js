@@ -1,5 +1,6 @@
 const express = require('express');
 const dbProduct = require('../model/Product')
+const User = require('../model/User')
 const md = require('../middlawre/verifed')
 const fileFilter = require('../middlawre/fileUpload')
 const toDelete = require('../middlawre/toDelete')
@@ -22,7 +23,8 @@ router.post('/' , fileFilter.single("img") , md ,   (req , res) => {
     sale : req.body.sale,
     category : req.body.category,
     comment : req.body.comment,
-    img : req.file.filename
+    img : req.file.filename ,
+    user : req.user.id
   })
   db.save((err) => {
     if(err){
@@ -36,17 +38,23 @@ router.post('/' , fileFilter.single("img") , md ,   (req , res) => {
 /// Working one's card product method of GET
 
 router.get('/product/:id' ,  (req  , res) => {
-  dbProduct.findById(req.params.id , (err ,data) => {
+  dbProduct.findById(req.params.id , async (err ,data) => {
     try {
-      res.render("product" , {
+      const user = await User.findById(data.user)   
+      console.log();
+      
+       res.render("product" , {
         title: "Mahsulot haqida",
         data ,
+        user ,
         login : req.isAuthenticated()
       })
+      
     } catch (error) {
       console.log(error);
     }
   })
+
 })
 
 /// Working one's card product EDIT method of GET

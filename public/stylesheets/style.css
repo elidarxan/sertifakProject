@@ -433,3 +433,34 @@ img{
   height: 80vh;
 }
 
+.back_gr {
+  display: block;
+}
+
+.product_box {
+  display: flex;
+  justify-content: space-between;
+}
+.container.big_reg {
+  background: #79A3B1;
+  border-radius: 25px;
+  padding: 20px ; 
+}
+
+label.reg_text.form-label {
+  font-weight: 700;
+  font-size: 23px;
+  color: #456268;
+}
+.form-control {
+  background-color: #D0E8F2;
+
+}
+
+h1 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  color: #456268;
+  font-weight: 700;
+}

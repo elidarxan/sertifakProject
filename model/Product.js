@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const dbProduct  = new schema ( {
+const dbProduct  = new Schema ( {
     title: {
         type : String,
         required : true
@@ -24,10 +24,11 @@ const dbProduct  = new schema ( {
         type : Date,
         default : Date.now
     },
+    user : {
+        type: Schema.Types.ObjectId ,
+        ref : 'userDb'
+    }
     
-
 })
-
-
 
 module.exports = mongoose.model('mahsulot' , dbProduct)
