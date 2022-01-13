@@ -1,9 +1,9 @@
 const express = require('express');
 const dbProduct = require('../model/Product')
 const User = require('../model/User')
-const md = require('../middlawre/verifed')
-const fileFilter = require('../middlawre/fileUpload')
-const toDelete = require('../middlawre/toDelete')
+const md = require('../middleware/verifed')
+const fileFilter = require('../middleware/fileUpload')
+const toDelete = require('../middleware/toDelete')
 // console.log(upload);
 const router = express.Router();
 
@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/' , fileFilter.single("img") , md ,   (req , res) => {
-  console.log(req.file.filename);
   const db = new dbProduct({
     title : req.body.title,
     price : req.body.price,
@@ -41,8 +40,6 @@ router.get('/product/:id' ,  (req  , res) => {
   dbProduct.findById(req.params.id , async (err ,data) => {
     try {
       const user = await User.findById(data.user)   
-      console.log();
-      
        res.render("product" , {
         title: "Mahsulot haqida",
         data ,
@@ -77,7 +74,7 @@ router.get('/update/:id' , (req , res) => {
 
 /// Working one's card product EDIT method of POST
 
-router.post('/update/:id'  , fileFilter.single("img") , async (req , res) => {
+router.post('/update/:id'  /* , fileFilter.single("img") */ , async (req , res) => {
   const user = req.body
   const img = await dbProduct.findById(req.params.id)
   const db = {
@@ -85,15 +82,15 @@ router.post('/update/:id'  , fileFilter.single("img") , async (req , res) => {
     price : req.body.price,
     comment : req.body.comment,
     category : req.body.category,
-    img : req.file.filename,
+    // img : req.file.filename,
   }
   
-  if(req.file){
-    user.img = req.file.filename
-    toDelete(img.img)
-  }else{
-    user.img = img
-  }
+  // if(req.file){
+  //   user.img = req.file.filename
+  //   toDelete(img.img)
+  // }else{
+  //   user.img = img
+  // }
   try {
     const ids = {_id : req.params.id}
    await dbProduct.findByIdAndUpdate(ids , db)

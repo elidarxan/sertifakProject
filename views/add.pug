@@ -12,15 +12,15 @@ block content
         .mb-3
             label.form-label.reg_text(for='exampleInputPassword1') Mahsulotning narxi
             if data
-                input.form-control#exampleInputEmail1(type='text' name="price" placeholder="Mahsulotning narxi" value= data.price)
+                input.form-control#exampleInputEmail1(type='number' name="price" placeholder="Mahsulotning narxi" value= data.price)
             else 
-                input.form-control#exampleInputEmail1(type='text' name="price" placeholder="Mahsulotning narxi"  )            
+                input.form-control#exampleInputEmail1(type='number' name="price" placeholder="Mahsulotning narxi"  )            
         .mb-3
             label.form-label.reg_text(for='exampleInputPassword1') Mahsulotning chegirmasi
             if data
-                input.form-control#exampleInputEmail1(type='text' name="sale" placeholder="Mahsulotning chegirmasi" value= data.sale)
+                input.form-control#exampleInputEmail1(type='number' name="sale" placeholder="Mahsulotning chegirmasi" value= data.sale)
             else 
-                input.form-control#exampleInputEmail1(type='text' name="sale" placeholder="Mahsulotning chegirmasi"  )               
+                input.form-control#exampleInputEmail1(type='number' name="sale" placeholder="Mahsulotning chegirmasi"  )               
         .mb-3
             select(name="category").form-control
                 option(value="chevrolet") chevrolet
@@ -35,5 +35,5 @@ block content
                  textarea(name="comment", cols="30", rows="10").form-control#exampleInputPassword1 
         .mb-3
             label.form-label.reg_text(for='exampleInputPassword1') Mahsulotning  rasmi
-            input(type="file" name="img").form-control#exampleInputPassword1
+            input(type="file" name="img" required).form-control#exampleInputPassword1
         button.btn.button_my(type='submit')= btn

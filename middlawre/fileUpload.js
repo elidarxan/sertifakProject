@@ -23,8 +23,7 @@ const storage = multer.diskStorage({
     }else{
         cb(null  , false)
     }
-
-
+    
   }
 
 module.exports = multer({ 
