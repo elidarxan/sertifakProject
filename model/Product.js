@@ -19,6 +19,7 @@ const dbProduct  = new Schema ( {
     },
     img : {
         type : String, 
+        required: true
     },
     dataTime : {
         type : Date,

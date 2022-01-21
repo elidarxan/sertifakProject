@@ -41,8 +41,6 @@ router.get('/product/:id' ,  (req  , res) => {
   dbProduct.findById(req.params.id , async (err ,data) => {
     try {
       const user = await User.findById(data.user)   
-      console.log();
-      
        res.render("product" , {
         title: "Mahsulot haqida",
         data ,
