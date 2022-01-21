@@ -6,13 +6,16 @@ block content
                 .col-lg-6.col-xl-3.col-md-4.col-sm-6.big__card
                     .card
                         .imgBox
-                        img.mouse(src= "images/"+ data.img, alt=""  )
+                        img.mouse(src= "/images/"+ data.img, alt=""  )
                         .contentBox 
                          h3= data.title   
                          h2.price= data.price 
                             |  $
                          .price__box
                           p.buy(dataId= "/add/product/"+data._id)  Batafsil
+                          if(log)
+                           a.add(href="/add/delete/"+data.id).button_my O`chirish
+                           a.like(href="/add/update/"+data.id).button_my O`zgartirish
 
 
 

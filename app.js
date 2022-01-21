@@ -15,8 +15,8 @@ const registerRouter = require('./routes/register');
 const app = express();
 
 app.use(require('connect-flash')())
-app.use(function (req , res , next) {
-  res.locals.messages = require('express-messages')(req , res)
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res)
   next()
 })
 
@@ -26,17 +26,17 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(uri, {useNewUrlParser : true , useUnifiedTopology: true });
+const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/Sertifikat-Maket'
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const db = mongoose.connection
-db.on('open' , () => {
+db.on('open', () => {
   console.log(`MongoDb running`);
 })
- 
-db.on('error' , (err) => {
-  console.log(`MongoDb ERROR running` , err);
+
+db.on('error', (err) => {
+  console.log(`MongoDb ERROR running`, err);
 })
 
 // view engine setup
@@ -48,12 +48,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/add/product' , express.static(path.join(__dirname, 'public')) )
-require("./middlawre/passport")(passport)
+app.use('/add/product', express.static(path.join(__dirname, 'public')))
+require("./middleware/passport")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('*' , (req , res , next) => {
+app.get('*', (req, res, next) => {
   res.locals.user = req.user || null
   next()
 })
@@ -64,12 +64,12 @@ app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
