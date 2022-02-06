@@ -26,7 +26,7 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/Sertifikat-Maket'
+const uri = 'mongodb+srv://eldor:A5173407QSXgmxHG@newclaster.n2446.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
